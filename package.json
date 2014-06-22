@@ -1,0 +1,28 @@
+{
+  "name": "FeatureClusterer",
+  "version": "0.0.1",
+  "description": "GeoJSON data format MarkerClusterer for Node.js",
+  "homepage": "https://github.com/dimik/feature-clusterer",
+  "keywords": [
+    "geo",
+    "markerclusterer",
+    "geojson"
+  ],
+  "author": {
+    "name": "Dmitry Poklonskiy",
+    "email": "dimik@yandex.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/dimik/feature-clusterer.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "should": "~4.0.4",
+    "mocha": "~1.20.1"
+  },
+  "main": "src/feature-clusterer",
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
