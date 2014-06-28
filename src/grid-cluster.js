@@ -39,8 +39,8 @@ ptp.getPixelCenter = function () {
   var pixelBounds = this.getPixelBounds();
 
   return [
-    pixelBounds[0] + (pixelBounds[2] - pixelBounds[0]) / 2,
-    pixelBounds[1] + (pixelBounds[3] - pixelBounds[1]) / 2
+    (pixelBounds[0] + pixelBounds[2]) / 2,
+    (pixelBounds[1] + pixelBounds[3]) / 2
   ];
 };
 
@@ -50,11 +50,11 @@ ptp.getCenter = function () {
   var pixelCenter = this.getPixelCenter();
   var cellCenter = cell.getCenter();
   var cellHalfSize = cell.getSize() / 2;
-  var margin = Math.min(options.margin, cellHalfSize);
-  var x = Math.max(Math.round(cellCenter[0] - (cellHalfSize - margin)), pixelCenter[0]);
-  x = Math.min(cellCenter[0] + (cellHalfSize - margin), x);
-  var y = Math.max(cellCenter[1] - (cellHalfSize - margin), pixelCenter[1]);
-  y = Math.min(cellCenter[1] + (cellHalfSize - margin), y);
+  var offset = cellHalfSize - Math.min(options.margin, cellHalfSize);
+  var x = Math.max(cellCenter[0] - offset, pixelCenter[0]);
+  x = Math.min(cellCenter[0] + offset, x);
+  var y = Math.max(cellCenter[1] - offset, pixelCenter[1]);
+  y = Math.min(cellCenter[1] + offset, y);
 
   return options.projection.fromGlobalPixels([x, y], options.zoom);
 };
